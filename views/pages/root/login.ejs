@@ -1,0 +1,54 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<%- include('../../partials/header.ejs') %>
+<body>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <!-- preloader area start -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+    <!-- preloader area end -->
+    <!-- login area start -->
+    <div class="login-area login-bg">
+        <div class="container">
+            <div class="login-box ptb--100">
+                <form action="/login" method="post">
+                    <div class="login-form-head">
+                        <h4>Sign In</h4>
+                        <p>Hello there, Sign in and start managing your Admin Template</p>
+                    </div>
+                    <div class="login-form-body">
+                        <% if (msgErr) { %>
+                          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                              <strong><%= msgErr %></strong>
+                              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                  <span class="fa fa-times"></span>
+                              </button>
+                          </div>
+                        <% } %>
+                        <div class="form-gp">
+                            <label for="exampleInputEmail1">Username</label>
+                            <input type="text" id="username" name="username">
+                            <i class="ti-user"></i>
+                        </div>
+                        <div class="form-gp">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" id="password" name="password">
+                            <i class="ti-lock"></i>
+                        </div>
+                        <div class="submit-btn-area">
+                            <button id="form_submit" type="submit">Submit <i class="ti-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- login area end -->
+<%- include('../../partials/script.ejs') %>
+
+</body>
+
+</html>

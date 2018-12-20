@@ -1,0 +1,87 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<%- include('../../partials/header') %>
+<body>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <!-- preloader area start -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+    <!-- preloader area end -->
+    <!-- page container area start -->
+    <div class="page-container">
+        <!-- sidebar menu area start -->
+        <%- include('./sidebar') %>
+        <!-- sidebar menu area end -->
+        <!-- main content area start -->
+        <div class="main-content">
+            <!-- header area start -->
+            <%- include('../../partials/main_header') %>
+            <!-- header area end -->
+            <!-- page title area start -->
+            <%- include('../../partials/page_title') %>
+            <!-- page title area end -->
+            <div class="main-content-inner">
+                <div class="row">
+                    <!-- Primary table start -->
+                    <div class="col-10 mt-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="header-title">Data Table Primary</h4>
+                                <div class="data-tables datatable-primary">
+                                    <table id="dataTable2" class="text-center">
+                                        <thead class="text-capitalize">
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Name</th>
+                                                <th>Address</th>
+                                                <th>Minimum Grades</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                          <% students.forEach((student, no) => { %>
+                                            <tr>
+                                              <td><%= no+1 %></td>
+                                              <td><%= student.name %></td>
+                                              <td><%= student.address %></td>
+                                              <td><%= student.minGrade %></td>
+                                              <td>
+                                                <div class="btn-group mb-xl-3" role="group" aria-label="Basic example">
+                                                    <a href = "/admin/student/edit/<%= student.id %>" type="button" class="btn btn-warning">Edit</a>
+                                                    <a href = "/admin/student/delete/<%= student.id %>" type="button" class="btn btn-danger">Delete</a>
+                                                    <div class="btn-group" role="group">
+                                                        <button id="btnGroupDrop" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            Danger Action
+                                                        </button>
+                                                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                                            <a href="/admin/student/qrcode/<%= student.id %>" class="dropdown-item">Generate Password</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                              </td>
+                                            </tr>
+                                          <% }); %>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Primary table end -->
+                </div>
+            </div>
+        </div>
+        <!-- main content area end -->
+        <!-- footer area start-->
+        <%- include('../../partials/footer') %>
+        <!-- footer area end-->
+    </div>
+    <!-- page container area end -->
+    <!-- jquery latest version -->
+    <%- include('../../partials/script') %>
+</body>
+
+</html>

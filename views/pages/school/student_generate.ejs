@@ -1,0 +1,85 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<%- include('../../partials/header') %>
+<body>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <!-- preloader area start -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+    <!-- preloader area end -->
+    <!-- page container area start -->
+    <div class="page-container">
+        <!-- sidebar menu area start -->
+        <%- include('./sidebar') %>
+        <!-- sidebar menu area end -->
+        <!-- main content area start -->
+        <div class="main-content">
+            <!-- header area start -->
+            <%- include('../../partials/main_header') %>
+            <!-- header area end -->
+            <!-- page title area start -->
+            <%- include('../../partials/page_title') %>
+            <!-- page title area end -->
+            <div class="main-content-inner">
+                <div class="row">
+                  <!-- basic form start -->
+                  <div class="col-6 mt-5">
+                      <div class="card">
+                          <div class="card-body">
+                              <h4 class="header-title">Validate Student</h4>
+                              <form action="/school/student/generate/<%= student.id %>" method="post" id="formstudent">
+                                  <div class="form-group">
+                                      <label for="name">NISN</label>
+                                      <input type="text" class="form-control" id="nisn" name="nisn" value="<%= student.nisn %>" disabled>
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="name">Name</label>
+                                      <input type="text" class="form-control" id="name" name="name" value="<%= student.name %>" disabled>
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="name">Address</label>
+                                      <input type="text" class="form-control" id="address" name="address" value="<%= student.address %>" disabled>
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="name">Email</label>
+                                      <input type="text" class="form-control" id="email" name="email"
+                                        <% if (student.email) { %>
+                                          value="<%= student.email %>" disabled
+                                        <% } %>
+                                      >
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="name">Grade Average</label>
+                                      <input type="text" class="form-control" id="avg" name="avg" value="<%= average %>" disabled>
+                                  </div>
+                                  <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4"
+                                    <% if (student.email) { %>
+                                      disabled
+                                    <% } %>
+                                  >Submit</button>
+                                  <% if (student.email) { %>
+                                    <a href="/school/student/qrcode/<%= student.id %>" class="btn btn-danger mt-4 pr-4 pl-4"> Reset Password </a>
+                                  <% } %>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- basic form end -->
+                </div>
+            </div>
+        </div>
+        <!-- main content area end -->
+        <!-- footer area start-->
+        <%- include('../../partials/footer') %>
+        <!-- footer area end-->
+    </div>
+    <!-- page container area end -->
+    <!-- jquery latest version -->
+    <%- include('../../partials/script') %>
+</body>
+
+</html>
+

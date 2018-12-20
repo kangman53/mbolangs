@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/kangman53/schooter/issues"
   },
-  "homepage": "https://github.com/kangman53/schooter#readme"
+  "homepage": "https://github.com/kangman53/schooter#readme",
+  "dependencies": {
+    "qrcode": "^1.3.2"
+  }
 }
