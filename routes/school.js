@@ -1,7 +1,8 @@
-const router = require('express').Router()
+const express = require('express')
+const app = express()
+const router = express.Router();
 const Model = require('../models')
 var QRCode = require('qrcode');
-
 
 router.get('/', (req, res) => {
   res.redirect('/school/dashboard')
@@ -12,7 +13,27 @@ router.get('/dashboard', (req, res) => {
 })
 
 router.get('/student', (req, res) => {
-  res.render('pages/school/student')
+  Model.School.findOne({
+    include:{
+      model: Model.Student
+    },
+    where: {
+        id:1
+    }
+  })
+    .then((school) => {
+      let students = school.Students.map(s => {
+        average = s.getAverage()
+        return {s, average}
+      });
+      res.render('pages/school/student', {
+        students: students
+      })
+    })
+
+    .catch((err) => {
+      res.send(err)
+    })
 })
 
 router.get('/student/validate', (req, res) => {

@@ -1,7 +1,8 @@
 const router = require('express').Router()
 const Model = require('../models')
 var QRCode = require('qrcode');
-
+const express = require('express')
+const app = express()
 
 router.get('/', (req, res) => {
   res.redirect('/admin/dashboard')

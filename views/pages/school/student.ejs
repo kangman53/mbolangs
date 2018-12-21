@@ -35,33 +35,20 @@
                                         <thead class="text-capitalize">
                                             <tr>
                                                 <th>No</th>
+                                                <th>NISN</th>
                                                 <th>Name</th>
                                                 <th>Address</th>
-                                                <th>Minimum Grades</th>
-                                                <th>Actions</th>
+                                                <th>Grades</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                           <% students.forEach((student, no) => { %>
                                             <tr>
                                               <td><%= no+1 %></td>
-                                              <td><%= student.name %></td>
-                                              <td><%= student.address %></td>
-                                              <td><%= student.minGrade %></td>
-                                              <td>
-                                                <div class="btn-group mb-xl-3" role="group" aria-label="Basic example">
-                                                    <a href = "/admin/student/edit/<%= student.id %>" type="button" class="btn btn-warning">Edit</a>
-                                                    <a href = "/admin/student/delete/<%= student.id %>" type="button" class="btn btn-danger">Delete</a>
-                                                    <div class="btn-group" role="group">
-                                                        <button id="btnGroupDrop" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                            Danger Action
-                                                        </button>
-                                                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                                            <a href="/admin/student/qrcode/<%= student.id %>" class="dropdown-item">Generate Password</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                              </td>
+                                              <td><%= student.s.nisn %></td>
+                                              <td><%= student.s.name %></td>
+                                              <td><%= student.s.address %></td>
+                                              <td><%= student.average %></td>
                                             </tr>
                                           <% }); %>
                                         </tbody>

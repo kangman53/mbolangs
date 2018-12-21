@@ -69,17 +69,30 @@ router.post('/login', (req, res) => {
           .update(password)
           .digest('hex');
         if (hash == user.password) {
-          if (user.Student) {
+          if (user.role === 'student') {
             id = user.Student.id
-          } else {
+            req.session.user = {
+              id: id,
+              username : username,
+              role : user.role
+            }
+            res.redirect('/student/dashboard')
+          } else if(user.role === 'school') {
             id = user.School.id
+            req.session.user = {
+              id: id,
+              username : username,
+              role : user.role
+            }
+            res.redirect('/school/dashboard')
+          } else if(user.role === 'admin'){
+            req.session.user = {
+              id: user.id,
+              username : username,
+              role : user.role
+            }
+            res.redirect('/admin/dashboard')
           }
-          req.session.user = {
-            id: id,
-            username : username,
-            role : user.role
-          }
-          res.redirect('/school/dashboard')
         } else {
           res.redirect('/login?err=wrong password')
         }
