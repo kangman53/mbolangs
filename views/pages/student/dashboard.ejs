@@ -1,0 +1,42 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<%- include('../../partials/header') %>
+<body>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <!-- preloader area start -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+    <!-- preloader area end -->
+    <!-- page container area start -->
+    <div class="page-container">
+        <!-- sidebar menu area start -->
+        <%- include('./sidebar') %>
+        <!-- sidebar menu area end -->
+        <!-- main content area start -->
+        <div class="main-content">
+            <!-- header area start -->
+            <%- include('../../partials/main_header') %>
+            <!-- header area end -->
+            <!-- page title area start -->
+            <%- include('../../partials/page_title') %>
+            <!-- page title area end -->
+            <div class="main-content-inner">
+                <div class="row">
+                </div>
+            </div>
+        </div>
+        <!-- main content area end -->
+        <!-- footer area start-->
+        <%- include('../../partials/footer') %>
+        <!-- footer area end-->
+    </div>
+    <!-- page container area end -->
+    <!-- jquery latest version -->
+    <%- include('../../partials/script') %>
+</body>
+
+</html>
+

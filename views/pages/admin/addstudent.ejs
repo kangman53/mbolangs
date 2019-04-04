@@ -1,0 +1,114 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<%- include('../../partials/header') %>
+<body>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <!-- preloader area start -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+    <!-- preloader area end -->
+    <!-- page container area start -->
+    <div class="page-container">
+        <!-- sidebar menu area start -->
+        <%- include('./sidebar') %>
+        <!-- sidebar menu area end -->
+        <!-- main content area start -->
+        <div class="main-content">
+            <!-- header area start -->
+            <%- include('../../partials/main_header') %>
+            <!-- header area end -->
+            <!-- page title area start -->
+            <%- include('../../partials/page_title') %>
+            <!-- page title area end -->
+            <div class="main-content-inner">
+                <div class="row">
+                  <!-- basic form start -->
+                  <div class="col-6 mt-5">
+                      <div class="card">
+                          <div class="card-body">
+                              <h4 class="header-title">Insert new student</h4>
+                              <form action="/admin/student/add" method="post" id="formstudent">
+                                  <div class="form-group">
+                                      <label for="name">NISN</label>
+                                      <input type="text" class="form-control" id="nisn" name="nisn">
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="name">Name</label>
+                                      <input type="text" class="form-control" id="name" name="name">
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="email">Email</label>
+                                      <input type="email" class="form-control" id="email" name="email">
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="placeOfBirth">Place Of Birth</label>
+                                      <input type="text" class="form-control" id="placeOfBirth" name="placeOfBirth">
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="placeOfBirth">Date Of Bith</label>
+                                      <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth">
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="address">Address</label>
+                                      <input type="text" class="form-control" id="address" name="address">
+                                  </div>
+                                  <div class="form-group">
+                                    <h6 class="header-title">Grades</h6>
+                                    <div class="row">
+                                      <div class="col-md-3">
+                                        <label for="address">Indonesian</label>
+                                        <input type="text" class="form-control" id="indonesian" name="indonesian">
+                                        <label for="address">Mathematics</label>
+                                        <input type="text" class="form-control" id="mathematics" name="mathematics">
+                                      </div>
+                                      <div class="col-md-3">
+                                        <label for="address">English</label>
+                                        <input type="text" class="form-control" id="english" name="english">
+                                        <label for="address">Sains</label>
+                                        <input type="text" class="form-control" id="sains" name="sains">
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Submit</button>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- basic form end -->
+                </div>
+            </div>
+        </div>
+        <!-- main content area end -->
+        <!-- footer area start-->
+        <%- include('../../partials/footer') %>
+        <!-- footer area end-->
+    </div>
+    <!-- page container area end -->
+    <!-- jquery latest version -->
+    <script type="text/javascript">
+    window.addEventListener('DOMContentLoaded', function() {
+      let status = "<%= action %>";
+      if (status == "edit") {
+        document.getElementById("nisn").value = "<%= student.nisn %>";
+        document.getElementById("name").value = "<%= student.name %>";
+        document.getElementById("email").value = "<%= student.email %>";
+        document.getElementById("address").value = "<%= student.address %>";
+        document.getElementById("placeOfBirth").value = "<%= student.placeOfBirth %>";
+        document.getElementById("dateOfBirth").value = "<%= student.dateOfBirth %>";
+        document.getElementById("formstudent").action = "/admin/student/edit/<%= student.id %>";
+        document.getElementById("indonesian").value = "<%= student.indonesian %>";
+        document.getElementById("mathematics").value = "<%= student.mathematics %>";
+        document.getElementById("english").value = "<%= student.english %>";
+        document.getElementById("sains").value = "<%= student.sains %>";
+      }
+    }, true);
+
+    </script>
+    <%- include('../../partials/script') %>
+</body>
+
+</html>
+

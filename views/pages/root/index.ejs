@@ -1,0 +1,61 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<%- include('../../partials/header.ejs') %>
+<body>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <!-- preloader area start -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+    <!-- preloader area end -->
+    <!-- accordion style 4 start -->
+    <div class="col-lg-6 mt-5">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="header-title">Accordion 1</h4>
+                <div id="accordion4" class="according accordion-s3 gradiant-bg">
+                    <div class="card">
+                        <div class="card-header">
+                            <a class="card-link" data-toggle="collapse" href="#accordion41">Collapsible Group
+                                Item #1</a>
+                        </div>
+                        <div id="accordion41" class="collapse show" data-parent="#accordion4">
+                            <div class="card-body">
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo eaque porro alias assumenda accusamus incidunt odio molestiae maxime quo atque in et quaerat, vel unde aliquam aperiam quidem consectetur omnis dicta officiis? Dolorum, error dolorem!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <a class="collapsed card-link" data-toggle="collapse" href="#accordion42">Collapsible
+                                Group Item #2</a>
+                        </div>
+                        <div id="accordion42" class="collapse" data-parent="#accordion4">
+                            <div class="card-body">
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo eaque porro alias assumenda accusamus incidunt odio molestiae maxime quo atque in et quaerat, vel unde aliquam aperiam quidem consectetur omnis dicta officiis? Dolorum, error dolorem!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <a class="collapsed card-link" data-toggle="collapse" href="#accordion43">Collapsible
+                                Group Item #3</a>
+                        </div>
+                        <div id="accordion43" class="collapse" data-parent="#accordion4">
+                            <div class="card-body">
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo eaque porro alias assumenda accusamus incidunt odio molestiae maxime quo atque in et quaerat, vel unde aliquam aperiam quidem consectetur omnis dicta officiis? Dolorum, error dolorem!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- accordion style 4 end -->
+<%- include('../../partials/script.ejs') %>
+
+</body>
+
+</html>
